@@ -126,6 +126,8 @@
   --body-s-size:      clamp(0.875rem, 0.95rem + 0.2vw, 1rem);   /* 14px, 16px, 16px */
   --body-xs-size:     clamp(0.75rem, 0.8rem + 0.1vw, 0.875rem); /* 12px, 13px, 14px */
   --body-xxs-size:    clamp(0.625rem, 0.7rem + 0.1vw, 0.75rem); /* 10px, 12px, 12px */
+}
+	
   /* Menus */
   --menu-font-size: var(--body-regular-size, clamp(1rem, 2.5vw, 1.125rem));
   --menu-h3-font-size: 18px;
@@ -441,9 +443,7 @@ img.cms-logo:hover {
 	padding-top: 1rem !important;
 }
 
-.slds-form-element.slds-m-bottom_small {
-	gap: 1rem !important;
-}
+gap: 1rem !important;
 
 .hutchies-way[lwc-6pmt9ovlvkt] {
 	padding-bottom: .75rem !important;
@@ -596,7 +596,7 @@ span.header.h3.primary-grey-dark {
 	margin-top: 2rem !important;
 	margin-bottom: 0 !important;
 	margin-left: 1rem !important;
-	margin-right: 1rem !important;
+	marging-right: 1rem !important;
 }
 
 .shortcut-wrapper[lwc-7rqkj561de]:hover {
@@ -636,7 +636,7 @@ ul li {
 }
 
 ul li::before {
-  content: "– " !important;
+  content: "â€“ " !important;
   position: absolute !important;
   left: -1.5em !important;
   color: inherit !important;
@@ -1605,10 +1605,9 @@ transition: color 0.2s !important;
 
 
 /* = Component-Specific Styles = */
-/* These styles target the actual class names used in LWC components */
+/* These styles are imported into LWC components via @import */
 
 /* == Hero Search Component == */
-/* Original styles from heroSearch.css */
 .hero-container {
     position: relative;
     width: 100%;
@@ -1616,7 +1615,7 @@ transition: color 0.2s !important;
     display: flex;
     flex-direction: column;
     justify-content: space-between;
-    background: transparent; /* No background */
+    background: transparent;
 }
 
 .header {
@@ -1625,9 +1624,9 @@ transition: color 0.2s !important;
     justify-content: space-between;
     width: 94%;
     box-sizing: border-box;
-    background: transparent; /* Add this to ensure header is transparent */
-    align-items: center; /* Center items vertically */
-    overflow: hidden; /* Ensure content does not overflow the header */
+    background: transparent;
+    align-items: center;
+    overflow: hidden;
     margin-left: 3%;
 }
 
@@ -1635,21 +1634,19 @@ transition: color 0.2s !important;
     background: transparent;
     flex: 1;
     z-index: 1;
-    max-height: 100%; /* Ensure it doesn't exceed the header height */
-    overflow: hidden; /* Hide overflow content */
+    max-height: 100%;
+    overflow: hidden;
     display: flex;
-    align-items: center; /* Center content vertically */
-    white-space: nowrap; /* Prevent text from wrapping */
-    text-overflow: ellipsis; /* Add ellipsis for overflow text */
+    align-items: center;
+    white-space: nowrap;
+    text-overflow: ellipsis;
     width: 30%;
 }
 
-/* Target all text elements within breadcrumbs */
 .breadcrumbs c-breadcrumbs-for-community {
     color: white;
 }
 
-/* Override the breadcrumbs content styles */
 .breadcrumbs .breadcrumbs-content,
 .breadcrumbs .breadcrumbs-content a,
 .breadcrumbs .breadcrumbs-content div,
@@ -1657,20 +1654,17 @@ transition: color 0.2s !important;
     color: white !important;
 }
 
-/* Specifically target the links and text */
 .breadcrumbs a,
 .breadcrumbs div,
 .breadcrumbs span {
     color: white !important;
 }
 
-/* Target the ask-hutchies class */
 .breadcrumbs .ask-hutchies,
 .breadcrumbs .ask-hutchies a {
     color: white !important;
 }
 
-/* Target article and category divs */
 .breadcrumbs .article-div,
 .breadcrumbs .category-div,
 .breadcrumbs .article-div a,
@@ -1679,21 +1673,19 @@ transition: color 0.2s !important;
 }
 
 .weather {
-    margin-left: auto; /* Pushes the weather component to the right */
-    z-index: 1; /* Add this if needed to ensure proper layering */
-    max-height: 100%; /* Ensure it doesn't exceed the header height */
-    overflow: visible; /* Allow content to be visible */
-    align-items: center; /* Center content vertically */
-    white-space: nowrap; /* Prevent text from wrapping */
+    margin-left: auto;
+    z-index: 1;
+    max-height: 100%;
+    overflow: visible;
+    align-items: center;
+    white-space: nowrap;
     width: 60%;
 }
 
-/* Add this to ensure any nested elements are also transparent */
 .breadcrumbs > *, .weather > * {
     background: transparent;
 }
 
-/* Add these styles to change breadcrumbs text color */
 .breadcrumbs :deep(.breadcrumbs-content),
 .breadcrumbs :deep(.breadcrumbs-content a) {
     color: white !important;
@@ -1720,14 +1712,14 @@ transition: color 0.2s !important;
     display: flex;
     justify-content: center;
     align-items: center;
-    width: 94%; /* 90% width of the container */
-    background-color: #17A6E9; /* Solid color for the search bar */
+    width: 94%;
+    background-color: #17A6E9;
     padding: 10px;
     box-sizing: border-box;
     position: absolute;
-    bottom: 5%; /* 5% from the bottom */
-    left: 3%;   /* 5% from the left */
-    right: 5%;  /* 5% from the right */
+    bottom: 5%;
+    left: 3%;
+    right: 5%;
 }
 
 .search-input {
@@ -1737,13 +1729,13 @@ transition: color 0.2s !important;
     border-radius: 5px 0 0 5px;
     outline: none;
     font-size: 1rem;
-    color: white; /* Text color */
+    color: white;
     background-color: transparent;
 }
 
 .search-input::placeholder {
-    color: white; /* White placeholder text */
-    opacity: 1; /* Ensures the placeholder text is fully opaque */
+    color: white;
+    opacity: 1;
 }
 
 .search-button {
@@ -1755,109 +1747,350 @@ transition: color 0.2s !important;
 }
 
 .search-button lightning-icon {
-    fill: white; /* Ensures the SVG inside the lightning-icon is filled with white */
-    color: white; /* Also sets the icon color to white */
+    fill: white;
+    color: white;
 }
 
 .search-button lightning-icon svg {
-    fill: white !important; /* Ensures the SVG path fills white, and !important overrides other styles */
+    fill: white !important;
 }
 
 .search-button lightning-icon::part(icon) {
-    fill: white; /* Ensures all icon parts are white */
-}
-
-/* == Ask Hutchies Component == */
-/* Original styles from askHutchies.css */
-.hutchies-container {
-    background-color: #2E2E2E;
-    color: white;
-    padding: 20px;
-    min-height: 100vh;
-}
-
-.hutchies-header {
-    margin-bottom: 2rem;
-}
-
-.hutchies-greeting h1 {
-    font-size: 3rem;
-    font-weight: 700;
-    margin-bottom: 1rem;
-    color: white;
-}
-
-.knowledge-list {
-    list-style: none;
-    padding: 0;
-    margin: 0;
-}
-
-.knowledge-item {
-    background: white;
-    border-radius: 8px;
-    padding: 1.5rem;
-    margin-bottom: 1rem;
-    display: flex;
-    justify-content: space-between;
-    align-items: center;
-    transition: transform 0.2s ease;
-}
-
-.knowledge-item:hover {
-    transform: translateY(-2px);
-    box-shadow: 0 4px 12px rgba(0,0,0,0.1);
-}
-
-.knowledge-title {
-    display: flex;
-    align-items: center;
-    flex: 1;
-}
-
-.knowledge-title h2 {
-    color: #2E2E2E;
-    font-size: 1.25rem;
-    margin: 0;
-    margin-left: 1rem;
-}
-
-.qLogo {
-    width: 40px;
-    height: 40px;
-    background: #17A6E9;
-    border-radius: 50%;
-    display: flex;
-    align-items: center;
-    justify-content: center;
-}
-
-.qLogo svg {
-    width: 20px;
-    height: 20px;
     fill: white;
 }
 
-.knowledge-arrow {
-    margin-left: 1rem;
+/* == Ask Hutchies Component == */
+.hutchies-container {
+    width: 100%;
+    height: 100%;
 }
 
-.SpinnerHolder {
+.hutchies-header {
+    position: relative;
+    width: 100%;
+    height: 320px;
+    flex-direction: column;
+    justify-content: space-between;
+    background-color: #F0F4F7;
+    padding-left: 3%;
+    padding-top: 10px;
+}
+
+.links {
+    margin-left: 20px;
+    color: #2e2e2e;
+}
+
+.hutchies-greeting {
+    margin: 20px 0px 0px 2%;
+    color: #2e2e2e;
+    float: left;
+    width: 95%;
     display: flex;
-    justify-content: center;
     align-items: center;
-    height: 200px;
+    justify-content: space-between;
+}
+
+.header-icon {
+    margin-top: 60px;
+    padding-left: 45px;
+    height: 70px;
+    float: left;
+    width: 10%;
+}
+
+.hutchies-greeting h1 {
+    font-size: 4rem;
+    font-weight: bold;
+    font-family: "Helvetica Now", sans-serif;
+    margin-top: 20px;
+    margin-bottom: 20px;
+}
+
+.hutchies-content {
+    padding-left: 3%;
+    height: 100%;
+}
+
+.hutchies-content-header {
+    margin: 0px 30px 10px 10px;
+    margin-left: 2%;
+    padding-bottom: 20px;
+    border-bottom: 1px solid #EBF0F4;
+}
+
+.hutchies-content-header h2 {
+    font-weight: bold;
+    font-family: "Helvetica Now", sans-serif;
+    font-size: 20px;
+    margin-top: 40px;
+}
+
+.knowledge-list {
+    height: 400px;
+    margin-left: 2%;
+    width: 95%;
+}
+
+.qLogo {
+    float: left;
+    width: 40px;
+}
+
+.knowledge-title {
+    width: 70%;
+    height: 50px;
+    float: left;
+}
+
+.knowledge-title h2 {
+    font-weight: bold;
+    padding-top: 5px;
+    font-family: "Helvetica Now", sans-serif;
+}
+
+.knowledge-arrow {
+    float: left;
+    width: 50px;
+    height: 50px;
+}
+
+.custom-button {
+    --slds-c-icon-color-foreground-default: #fff;
+    --slds-c-button-brand-color-background: #3fb5e6;
+    --slds-c-button-brand-color-border: #3fb5e6;
+    --slds-c-button-brand-color-background-hover: #3fb5e6;
+    --slds-c-button-brand-color-border-hover: #3fb5e6;
+}
+
+.knowledge-item {
+    border-bottom: 1px solid #EBF0F4;
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    padding-top: 10px;
+}
+
+.hutchies-content-label {
+    float: left;
+    width: 25%;
+}
+
+.hutchies-content-value {
+    float: left;
+    width: 75%;
+    height: inherit;
+    padding: 40px 30px 10px 10px;
+}
+
+.richTextValue {
+    font-family: "Helvetica Now", sans-serif;
+    font-size: 15px;
+    color: #5A5A5A;
+}
+
+.hutchies-content-body {
+    margin: 0px 30px 10px 10px;
+    margin-left: 2%;
+    display: flex;
+    flex: 1 1 auto;
+    overflow: auto;
+}
+
+.hutchies-content-body h2 {
+    font-weight: bold;
+    font-family: "Helvetica Now", sans-serif;
+    font-size: 20px;
+    margin-top: 40px;
+}
+
+.hutchies-content-enquire {
+    margin: 0px 30px 10px 10px;
+    margin-left: 2%;
+    border-top: 1px solid #EBF0F4;
+}
+
+.hutchies-content-enquire h2 {
+    font-weight: bold;
+    font-family: "Helvetica Now", sans-serif;
+    font-size: 20px;
+    margin-top: 40px;
+}
+
+input[type=tel] {
+    padding-left: 40px;
+}
+
+.formInput {
+    font-family: "Helvetica Now", sans-serif !important;
+    font-size: 15px;
+    color: #5A5A5A;
+}
+
+.spaceTop {
+    width: 100%;
+    background-color: #F0F4F7;
+    height: 260px;
+}
+
+.grayHeader {
+    width: 100%;
+    background-color: #F0F4F7;
+    height: 60px;
+    padding-top: 20px;
+    padding-bottom: 20px;
+}
+
+.help-card {
+    background-color: #f4f6f9;
+    padding-left: 10px;
+    padding-top: 15px;
+    padding-right: 16px;
+    height: 70px;
+    width: 100%;
+}
+
+.docIcon {
+    float: left;
+    width: 42px;
+}
+
+.docTitleDiv {
+    width: 78%;
+    float: left;
+    padding-left: 5px;
+}
+
+.docTitle {
+    font-family: 'Helvetica Now';
+    font-size: 22px;
+    font-weight: 700;
+}
+
+.svgdoc {
+    width: 36px;
+    height: 36px;
+}
+
+.docArrow {
+    float: right;
+    margin-top: 10px;
+}
+
+.shuckers-icon {
+    width: 4rem;
+    height: 4rem;
+    margin-right: 0;
+    margin-left: 10px;
+}
+
+/* == Weather LWC Component == */
+c-weather-lwc img {
+    width: 22px;
+    height: 20px;
+}
+
+c-weather-lwc svg {
+    padding-top: 6px;
+    padding-right: 3px;
+    height: 30px;
+    width: 14px;
+}
+
+c-weather-lwc .city {
+    padding-left: 5px;
+}
+
+c-weather-lwc .temp,
+c-weather-lwc .city {
+    font-family: 'Helvetica Now';
+    font-size: 14px;
+    white-space: nowrap;
+    overflow: hidden;
+    text-overflow: ellipsis;
+}
+
+c-weather-lwc .SpinnerHolder {
+    height: 20px;
+    position: relative;
+    display: inline-block;
+    width: 100%;
+}
+
+c-weather-lwc {
+    display: flex;
+    justify-content: flex-end;
+    align-items: center;
+    width: 100%;
+    gap: 10px;
+}
+
+c-weather-lwc .lightning-layout {
+    display: flex;
+    align-items: center;
+    gap: 5px;
+}
+
+/* == Search Bar Component == */
+.search-container {
+    margin-bottom: 1rem;
+}
+
+.search-input-wrapper {
+    position: relative;
+}
+
+.search-input {
+    width: 100%;
+    padding: 0.75rem 2.75rem 0.75rem 1rem;
+    border: 1px solid #e5e5e5;
+    font-family: "Helvetica Now", Helvetica, Arial, sans-serif;
+    font-size: 20px;
+    font-weight: 400;
+    line-height: 24px;
+    letter-spacing: 0.01em;
+    color: #2b2826;
+    background-color: white;
+    transition: border-color 0.15s ease-in-out;
+    text-align: left;
+    text-underline-position: from-font;
+    text-decoration-skip-ink: none;
+}
+
+.search-input:focus {
+    outline: none;
+    border-color: #0070d2;
+    box-shadow: 0 0 3px #0070d2;
+}
+
+.search-input::placeholder {
+    color: #706e6b;
+    font-family: "Helvetica Now", Helvetica, Arial, sans-serif;
+    font-size: 20px;
+    font-weight: 400;
+    line-height: 24px;
+    letter-spacing: 0.01em;
+    text-align: left;
+    text-underline-position: from-font;
+    text-decoration-skip-ink: none;
+}
+
+.search-icon {
+    position: absolute;
+    right: 1rem;
+    top: 50%;
+    transform: translateY(-50%);
+    --sds-c-icon-color-foreground-default: #706e6b;
 }
 
 /* == Breadcrumbs For Community Component == */
-/* Original styles from breadcrumbsForCommunity.css */
 .breadcrumbs-content {
     font-family: 'Helvetica Now', sans-serif;
-    font-size: 12px;
-    line-height: 14px;
+    font-size: var(--breadcrumbs-font-size, 12px);
+    line-height: var(--breadcrumbs-line-height, 14px);
     color: inherit;
-    height: 40px;
-    padding-top: 6px;
+    height: var(--breadcrumbs-height, 40px);
+    padding-top: var(--breadcrumbs-padding-top, 6px);
     background: transparent !important;
 }
 
@@ -1868,6 +2101,41 @@ transition: color 0.2s !important;
 .breadcrumbs-content a {
     color: inherit;
     background: transparent !important;
+}
+
+.ka-container .mobile-breadcrumbs .breadcrumbs-content {
+    height: auto !important;
+    font-size: 10px !important;
+}
+
+.mobile-breadcrumbs c-breadcrumbs-for-community .breadcrumbs-content {
+    height: auto !important;
+    font-size: 10px !important;
+}
+
+.article-div {
+    padding-left: 20px;
+    padding-right: 20px;
+    color: #838383 !important;
+}
+
+.knowledge-detail-wrapper c-breadcrumbs-for-community .breadcrumbs-content .article-div {
+    padding-left: 0 !important;
+    padding-right: 0 !important;
+}
+
+.article-div.no-padding {
+    padding-left: 0 !important;
+    padding-right: 0 !important;
+}
+
+.article-div span {
+    color: #838383;
+    font-weight: 400;
+}
+
+.article-div .article-name {
+    color: #2E2E2E;
 }
 
 .topics {
@@ -1887,154 +2155,15 @@ transition: color 0.2s !important;
     color: var(--text-color, inherit);
 }
 
-.article-div, .category-div {
-    padding-left: 20px;
+.category-div {
     padding-right: 20px;
-    color: var(--text-color, inherit);
-}
-
-/* == Weather LWC Component == */
-/* Original styles from weatherLwc.css */
-c-weather-lwc img {
-    width: 22px;
-    height: 20px;
-}
-
-c-weather-lwc svg {
-    padding-top: 6px;
-    padding-right: 3px;
-    height: 30px;
-    width: 14px;
-}
-
-c-weather-lwc .city {
-    padding-left: 5px;
-}
-
-c-weather-lwc .temp, 
-c-weather-lwc .city {
-    font-family: 'Helvetica Now';
-    font-size: 14px;
-    white-space: nowrap;
-    overflow: hidden;
-    text-overflow: ellipsis;
-}
-
-c-weather-lwc .SpinnerHolder {
-    height: 20px;
-    position: relative;
-    display: inline-block;
-    width: 100%;
-}
-
-/* New styles to float content to the right */
-c-weather-lwc {
-    display: flex;
-    justify-content: flex-end; /* Align content to the right */
-    align-items: center; /* Center content vertically */
-    width: 100%;
-    gap: 10px; /* Add more space between items */
-}
-
-c-weather-lwc .lightning-layout {
-    display: flex;
-    align-items: center;
-    gap: 5px; /* Add space between items */
-}
-
-/* == Site Header Component == */
-/* Original styles from siteHeader.css */
-.items {
-    padding-right: 24px;
-    color: black;
-    font-size: 14px;
-}
-
-.padded {
-    padding: 1.5em;
-}
-
-.search {
-    background: var(--primary-grey-light, #F0F4F7);
-}
-
-.custom-grid {
-    margin-left: 3%;
-}
-
-.custom-size-2-of-12 {
-    width: 16.67%; /* 2 / 12 * 100 */
-}
-
-.custom-size-1-5-of-12 {
-    width: 12.5%; /* 1.5 / 12 * 100 */
-}
-
-.breadcrumb-text {
-    font-family: Helvetica Now Text;
-    font-size: 10px;
-    font-weight: 400;
-    line-height: 14px;
-    letter-spacing: 0.01em;
-    text-align: left;
-}
-
-/* == My Shortcuts Component == */
-/* Original styles from myShortcuts.css */
-.container {
-    background-color: #f0f4f8; /* Adjust based on your design's background */
-    padding: 1rem;
-}
-
-.header {
-    font-size: 1.5rem; /* Adjust size as needed */
-    font-weight: bold;
-    color: #333;
-    margin-bottom: 1rem;
-}
-
-.section {
-    display: flex;
-    justify-content: space-between;
-    margin-bottom: 1rem;
-}
-
-.shortcut-wrapper {
-    width: 20%; /* Adjust width to ensure proper spacing */
-    display: flex;
-    flex-direction: column;
-    align-items: flex-start; /* Align the entire wrapper to the start */
-}
-
-.shortcut {
-    display: flex;
-    align-items: center;
-    justify-content: flex-start; /* Align items to the start of the container */
-    margin-bottom: 0.5rem;
-    white-space: nowrap; /* Prevent text from wrapping */
-}
-
-.shortcut lightning-icon {
-    margin-right: 0.5rem;
-    color: #0070d2; /* Salesforce blue */
-}
-
-.line {
-    width: 100%;
-    height: 1px;
-    background-color: #e0e0e0;
-    margin: 0.5rem 0;
-}
-
-span {
-    font-weight: bold;
-    color: #333;
+    color: #838383;
+    font-family: 'Helvetica Now', sans-serif;
 }
 
 /* == Announcement Banner Component == */
-/* Original styles from announcementBanner.css */
 .announcement-container {
-    background-color: #26A9E8; /* Salesforce Blue */
+    background-color: #26A9E8;
     color: white;
     padding: 20px;
     border-radius: 0px;
@@ -2042,8 +2171,8 @@ span {
     text-align: left;
     position: relative;
     height: 432px;
-    box-sizing: border-box; /* Ensure padding is included in width/height */
-    overflow: hidden; /* Ensure content doesn't overflow the container */
+    box-sizing: border-box;
+    overflow: hidden;
 }
 
 .announcement-header {
@@ -2054,13 +2183,13 @@ span {
     margin-bottom: 10px;
     overflow: hidden;
     text-overflow: ellipsis;
-    white-space: nowrap; /* Prevents header from wrapping to multiple lines */
+    white-space: nowrap;
 }
 
 .announcement-content {
-    max-height: calc(100% - 60px); /* Adjust according to the space needed for other elements */
-    overflow-y: auto; /* Allow vertical scrolling if content exceeds height */
-    padding-right: 10px; /* Avoid content getting too close to the edge */
+    max-height: calc(100% - 60px);
+    overflow-y: auto;
+    padding-right: 10px;
 }
 
 .announcement-content h1 {
@@ -2071,20 +2200,18 @@ span {
     padding: 0;
     overflow: hidden;
     word-wrap: break-word;
-    white-space: normal; /* Allow text to wrap to the next line */
+    white-space: normal;
 }
 
-/* Flexbox for the footer */
 .announcement-footer {
     display: flex;
     justify-content: space-between;
     align-items: center;
     position: absolute;
     bottom: 20px;
-    width: calc(100% - 40px); /* Account for padding */
+    width: calc(100% - 40px);
 }
 
-/* Arrow button styling */
 .arrow-button {
     background: url('/path/to/arrow-icon.png') no-repeat center;
     background-size: contain;
@@ -2094,7 +2221,6 @@ span {
     cursor: pointer;
 }
 
-/* Dots indicator */
 .dots {
     position: absolute;
     bottom: 20px;
@@ -2124,6 +2250,159 @@ span {
     color: #005581;
     overflow: hidden;
     word-wrap: break-word;
-    white-space: normal; /* Allow text to wrap to the next line */
+    white-space: normal;
 }
 
+/* == Mobile Styles for Ask Hutchies == */
+@media (max-width: 768px) {
+    .hutchies-header {
+        height: auto;
+        padding: 16px;
+        background-color: #fff;
+    }
+
+    .hutchies-greeting {
+        margin: 0;
+        width: 100%;
+        padding: 8px 0;
+    }
+
+    .hutchies-greeting h1 {
+        font-size: 24px;
+        margin: 0;
+    }
+
+    .shuckers-icon {
+        display: none;
+    }
+
+    .search-box {
+        width: 100%;
+        margin: 16px 0 0 0;
+    }
+
+    .knowledge-list {
+        height: auto;
+        margin: 0;
+        width: 100%;
+    }
+
+    .hutchies-content {
+        padding: 0 16px;
+    }
+
+    .hutchies-content-header {
+        margin: 16px 0;
+        padding-bottom: 8px;
+    }
+
+    .hutchies-content-header h2 {
+        margin-top: 16px;
+        font-size: 18px;
+    }
+
+    .mobile-contact-section {
+        order: 999;
+        width: 100%;
+        padding: 16px;
+        margin-top: 24px;
+        background-color: #fff;
+        border-top: 1px solid #EBF0F4;
+    }
+
+    .mobile-contact-header {
+        font-size: 18px;
+        font-weight: bold;
+        font-family: "Helvetica Now", sans-serif;
+        margin-bottom: 16px;
+    }
+
+    .desktop-contact-section {
+        display: none;
+    }
+
+    .hutchies-container {
+        display: flex;
+        flex-direction: column;
+    }
+
+    lightning-layout[multiple-rows="true"] {
+        display: flex;
+        flex-direction: column;
+    }
+
+    lightning-layout-item {
+        width: 100%;
+    }
+
+    .mobile-help-card {
+        margin-bottom: 24px;
+    }
+
+    .mobile-help-card .help-card {
+        background-color: #fff;
+        padding: 0;
+        height: auto;
+        margin-bottom: 16px;
+    }
+
+    .hutchies-content-body {
+        display: flex;
+        flex-direction: column;
+        margin: 0;
+        padding: 16px;
+    }
+
+    .hutchies-content-label {
+        width: 100%;
+        float: none;
+        margin-bottom: 16px;
+    }
+
+    .hutchies-content-label h2 {
+        margin-top: 0;
+        font-size: 24px;
+        font-weight: bold;
+    }
+
+    .hutchies-content-value {
+        width: 100%;
+        float: none;
+        padding: 0;
+        margin-bottom: 24px;
+    }
+
+    .knowledge-item {
+        margin-bottom: 16px;
+        padding: 16px;
+        background-color: #fff;
+        border: 1px solid #EBF0F4;
+        border-radius: 4px;
+    }
+
+    .help-card {
+        height: auto;
+        padding: 16px;
+        margin-bottom: 16px;
+    }
+
+    .feedback-section {
+        padding: 16px;
+        background-color: #fff;
+        border-top: 1px solid #EBF0F4;
+    }
+}
+
+@media (min-width: 769px) {
+    .mobile-contact-section {
+        display: none;
+    }
+
+    .mobile-help-card {
+        display: none;
+    }
+}
+
+/* = Utility Classes = */
+.mt-0 { margin-top: 0; }
+.mb-0 { margin-bottom: 0; }
