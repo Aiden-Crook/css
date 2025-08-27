@@ -1605,113 +1605,148 @@ transition: color 0.2s !important;
 
 
 /* = Component-Specific Styles = */
+/* These styles target the actual class names used in LWC components */
 
 /* == Hero Search Component == */
-c-hero-search .hero-container {
+/* Original styles from heroSearch.css */
+.hero-container {
     position: relative;
     width: 100%;
     height: 432px;
     display: flex;
     flex-direction: column;
     justify-content: space-between;
-    background: transparent;
+    background: transparent; /* No background */
 }
 
-c-hero-search .header {
+.header {
     display: flex;
     height: 60px;
     justify-content: space-between;
     width: 94%;
     box-sizing: border-box;
-    background: transparent;
-    align-items: center;
-    overflow: hidden;
+    background: transparent; /* Add this to ensure header is transparent */
+    align-items: center; /* Center items vertically */
+    overflow: hidden; /* Ensure content does not overflow the header */
     margin-left: 3%;
 }
 
-c-hero-search .breadcrumbs {
+.breadcrumbs {
     background: transparent;
     flex: 1;
     z-index: 1;
-    max-height: 100%;
-    overflow: hidden;
+    max-height: 100%; /* Ensure it doesn't exceed the header height */
+    overflow: hidden; /* Hide overflow content */
     display: flex;
-    align-items: center;
-    white-space: nowrap;
-    text-overflow: ellipsis;
+    align-items: center; /* Center content vertically */
+    white-space: nowrap; /* Prevent text from wrapping */
+    text-overflow: ellipsis; /* Add ellipsis for overflow text */
     width: 30%;
 }
 
-c-hero-search .breadcrumbs c-breadcrumbs-for-community {
+/* Target all text elements within breadcrumbs */
+.breadcrumbs c-breadcrumbs-for-community {
     color: white;
 }
 
-c-hero-search .breadcrumbs .breadcrumbs-content,
-c-hero-search .breadcrumbs .breadcrumbs-content a,
-c-hero-search .breadcrumbs .breadcrumbs-content div,
-c-hero-search .breadcrumbs .breadcrumbs-content span {
+/* Override the breadcrumbs content styles */
+.breadcrumbs .breadcrumbs-content,
+.breadcrumbs .breadcrumbs-content a,
+.breadcrumbs .breadcrumbs-content div,
+.breadcrumbs .breadcrumbs-content span {
     color: white !important;
 }
 
-c-hero-search .breadcrumbs a,
-c-hero-search .breadcrumbs div,
-c-hero-search .breadcrumbs span {
+/* Specifically target the links and text */
+.breadcrumbs a,
+.breadcrumbs div,
+.breadcrumbs span {
     color: white !important;
 }
 
-c-hero-search .weather {
-    margin-left: auto;
-    z-index: 1;
-    max-height: 100%;
-    overflow: visible;
-    align-items: center;
-    white-space: nowrap;
+/* Target the ask-hutchies class */
+.breadcrumbs .ask-hutchies,
+.breadcrumbs .ask-hutchies a {
+    color: white !important;
+}
+
+/* Target article and category divs */
+.breadcrumbs .article-div,
+.breadcrumbs .category-div,
+.breadcrumbs .article-div a,
+.breadcrumbs .category-div a {
+    color: white !important;
+}
+
+.weather {
+    margin-left: auto; /* Pushes the weather component to the right */
+    z-index: 1; /* Add this if needed to ensure proper layering */
+    max-height: 100%; /* Ensure it doesn't exceed the header height */
+    overflow: visible; /* Allow content to be visible */
+    align-items: center; /* Center content vertically */
+    white-space: nowrap; /* Prevent text from wrapping */
     width: 60%;
 }
 
-c-hero-search .hero-greeting {
+/* Add this to ensure any nested elements are also transparent */
+.breadcrumbs > *, .weather > * {
+    background: transparent;
+}
+
+/* Add these styles to change breadcrumbs text color */
+.breadcrumbs :deep(.breadcrumbs-content),
+.breadcrumbs :deep(.breadcrumbs-content a) {
+    color: white !important;
+}
+
+.breadcrumbs :deep(.breadcrumbs-content div),
+.breadcrumbs :deep(.breadcrumbs-content span) {
+    color: white !important;
+}
+
+.hero-greeting {
     margin: 0px 20px 20px 0px;
     margin-left: 0;
     color: white;
 }
 
-c-hero-search .hero-greeting h1 {
+.hero-greeting h1 {
     font-size: 2rem;
     margin: 0;
     margin-left: 3%;
 }
 
-c-hero-search .search-box {
+.search-box {
     display: flex;
     justify-content: center;
     align-items: center;
-    width: 94%;
-    background-color: #17A6E9;
+    width: 94%; /* 90% width of the container */
+    background-color: #17A6E9; /* Solid color for the search bar */
     padding: 10px;
     box-sizing: border-box;
     position: absolute;
-    bottom: 5%;
-    left: 3%;
-    right: 5%;
+    bottom: 5%; /* 5% from the bottom */
+    left: 3%;   /* 5% from the left */
+    right: 5%;  /* 5% from the right */
 }
 
-c-hero-search .search-input {
+.search-input {
     width: 100%;
     padding: 10px;
     border: none;
     border-radius: 5px 0 0 5px;
     outline: none;
     font-size: 1rem;
-    color: white;
+    color: white; /* Text color */
     background-color: transparent;
 }
 
-c-hero-search .search-input::placeholder {
-    color: white;
-    opacity: 1;
+.search-input::placeholder {
+    color: white; /* White placeholder text */
+    opacity: 1; /* Ensures the placeholder text is fully opaque */
 }
 
-c-hero-search .search-button {
+.search-button {
     padding: 10px;
     border: none;
     background-color: transparent;
@@ -1719,8 +1754,104 @@ c-hero-search .search-button {
     cursor: pointer;
 }
 
+.search-button lightning-icon {
+    fill: white; /* Ensures the SVG inside the lightning-icon is filled with white */
+    color: white; /* Also sets the icon color to white */
+}
+
+.search-button lightning-icon svg {
+    fill: white !important; /* Ensures the SVG path fills white, and !important overrides other styles */
+}
+
+.search-button lightning-icon::part(icon) {
+    fill: white; /* Ensures all icon parts are white */
+}
+
+/* == Ask Hutchies Component == */
+/* Original styles from askHutchies.css */
+.hutchies-container {
+    background-color: #2E2E2E;
+    color: white;
+    padding: 20px;
+    min-height: 100vh;
+}
+
+.hutchies-header {
+    margin-bottom: 2rem;
+}
+
+.hutchies-greeting h1 {
+    font-size: 3rem;
+    font-weight: 700;
+    margin-bottom: 1rem;
+    color: white;
+}
+
+.knowledge-list {
+    list-style: none;
+    padding: 0;
+    margin: 0;
+}
+
+.knowledge-item {
+    background: white;
+    border-radius: 8px;
+    padding: 1.5rem;
+    margin-bottom: 1rem;
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    transition: transform 0.2s ease;
+}
+
+.knowledge-item:hover {
+    transform: translateY(-2px);
+    box-shadow: 0 4px 12px rgba(0,0,0,0.1);
+}
+
+.knowledge-title {
+    display: flex;
+    align-items: center;
+    flex: 1;
+}
+
+.knowledge-title h2 {
+    color: #2E2E2E;
+    font-size: 1.25rem;
+    margin: 0;
+    margin-left: 1rem;
+}
+
+.qLogo {
+    width: 40px;
+    height: 40px;
+    background: #17A6E9;
+    border-radius: 50%;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+}
+
+.qLogo svg {
+    width: 20px;
+    height: 20px;
+    fill: white;
+}
+
+.knowledge-arrow {
+    margin-left: 1rem;
+}
+
+.SpinnerHolder {
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    height: 200px;
+}
+
 /* == Breadcrumbs For Community Component == */
-c-breadcrumbs-for-community .breadcrumbs-content {
+/* Original styles from breadcrumbsForCommunity.css */
+.breadcrumbs-content {
     font-family: 'Helvetica Now', sans-serif;
     font-size: 12px;
     line-height: 14px;
@@ -1730,40 +1861,40 @@ c-breadcrumbs-for-community .breadcrumbs-content {
     background: transparent !important;
 }
 
-c-breadcrumbs-for-community .breadcrumbs-content > div {
+.breadcrumbs-content > div {
     background: transparent !important;
 }
 
-c-breadcrumbs-for-community .breadcrumbs-content a {
+.breadcrumbs-content a {
     color: inherit;
     background: transparent !important;
 }
 
-c-breadcrumbs-for-community .topics {
+.topics {
     color: var(--text-color, #FFFFFF) !important;
     padding-left: 20px;
     padding-bottom: 20px;
 }
 
-c-breadcrumbs-for-community .topics a {
+.topics a {
     font-family: Helvetica;
     font-size: 11px;
     color: var(--text-color, #FFFFFF) !important;
 }
 
-c-breadcrumbs-for-community .ask-hutchies {
+.ask-hutchies {
     padding-left: 3%;
     color: var(--text-color, inherit);
 }
 
-c-breadcrumbs-for-community .article-div, 
-c-breadcrumbs-for-community .category-div {
+.article-div, .category-div {
     padding-left: 20px;
     padding-right: 20px;
     color: var(--text-color, inherit);
 }
 
 /* == Weather LWC Component == */
+/* Original styles from weatherLwc.css */
 c-weather-lwc img {
     width: 22px;
     height: 20px;
@@ -1780,7 +1911,8 @@ c-weather-lwc .city {
     padding-left: 5px;
 }
 
-c-weather-lwc .temp, c-weather-lwc .city {
+c-weather-lwc .temp, 
+c-weather-lwc .city {
     font-family: 'Helvetica Now';
     font-size: 14px;
     white-space: nowrap;
@@ -1795,48 +1927,50 @@ c-weather-lwc .SpinnerHolder {
     width: 100%;
 }
 
+/* New styles to float content to the right */
 c-weather-lwc {
     display: flex;
-    justify-content: flex-end;
-    align-items: center;
+    justify-content: flex-end; /* Align content to the right */
+    align-items: center; /* Center content vertically */
     width: 100%;
-    gap: 10px;
+    gap: 10px; /* Add more space between items */
 }
 
 c-weather-lwc .lightning-layout {
     display: flex;
     align-items: center;
-    gap: 5px;
+    gap: 5px; /* Add space between items */
 }
 
 /* == Site Header Component == */
-c-site-header .items {
+/* Original styles from siteHeader.css */
+.items {
     padding-right: 24px;
     color: black;
     font-size: 14px;
 }
 
-c-site-header .padded {
+.padded {
     padding: 1.5em;
 }
 
-c-site-header .search {
+.search {
     background: var(--primary-grey-light, #F0F4F7);
 }
 
-c-site-header .custom-grid {
+.custom-grid {
     margin-left: 3%;
 }
 
-c-site-header .custom-size-2-of-12 {
-    width: 16.67%;
+.custom-size-2-of-12 {
+    width: 16.67%; /* 2 / 12 * 100 */
 }
 
-c-site-header .custom-size-1-5-of-12 {
-    width: 12.5%;
+.custom-size-1-5-of-12 {
+    width: 12.5%; /* 1.5 / 12 * 100 */
 }
 
-c-site-header .breadcrumb-text {
+.breadcrumb-text {
     font-family: Helvetica Now Text;
     font-size: 10px;
     font-weight: 400;
@@ -1846,59 +1980,61 @@ c-site-header .breadcrumb-text {
 }
 
 /* == My Shortcuts Component == */
-c-my-shortcuts .container {
-    background-color: #f0f4f8;
+/* Original styles from myShortcuts.css */
+.container {
+    background-color: #f0f4f8; /* Adjust based on your design's background */
     padding: 1rem;
 }
 
-c-my-shortcuts .header {
-    font-size: 1.5rem;
+.header {
+    font-size: 1.5rem; /* Adjust size as needed */
     font-weight: bold;
     color: #333;
     margin-bottom: 1rem;
 }
 
-c-my-shortcuts .section {
+.section {
     display: flex;
     justify-content: space-between;
     margin-bottom: 1rem;
 }
 
-c-my-shortcuts .shortcut-wrapper {
-    width: 20%;
+.shortcut-wrapper {
+    width: 20%; /* Adjust width to ensure proper spacing */
     display: flex;
     flex-direction: column;
-    align-items: flex-start;
+    align-items: flex-start; /* Align the entire wrapper to the start */
 }
 
-c-my-shortcuts .shortcut {
+.shortcut {
     display: flex;
     align-items: center;
-    justify-content: flex-start;
+    justify-content: flex-start; /* Align items to the start of the container */
     margin-bottom: 0.5rem;
-    white-space: nowrap;
+    white-space: nowrap; /* Prevent text from wrapping */
 }
 
-c-my-shortcuts .shortcut lightning-icon {
+.shortcut lightning-icon {
     margin-right: 0.5rem;
-    color: #0070d2;
+    color: #0070d2; /* Salesforce blue */
 }
 
-c-my-shortcuts .line {
+.line {
     width: 100%;
     height: 1px;
     background-color: #e0e0e0;
     margin: 0.5rem 0;
 }
 
-c-my-shortcuts span {
+span {
     font-weight: bold;
     color: #333;
 }
 
 /* == Announcement Banner Component == */
-c-announcement-banner .announcement-container {
-    background-color: #26A9E8;
+/* Original styles from announcementBanner.css */
+.announcement-container {
+    background-color: #26A9E8; /* Salesforce Blue */
     color: white;
     padding: 20px;
     border-radius: 0px;
@@ -1906,11 +2042,11 @@ c-announcement-banner .announcement-container {
     text-align: left;
     position: relative;
     height: 432px;
-    box-sizing: border-box;
-    overflow: hidden;
+    box-sizing: border-box; /* Ensure padding is included in width/height */
+    overflow: hidden; /* Ensure content doesn't overflow the container */
 }
 
-c-announcement-banner .announcement-header {
+.announcement-header {
     font-size: 0.8rem;
     font-family: "DIN Condensed";
     text-transform: uppercase;
@@ -1918,16 +2054,16 @@ c-announcement-banner .announcement-header {
     margin-bottom: 10px;
     overflow: hidden;
     text-overflow: ellipsis;
-    white-space: nowrap;
+    white-space: nowrap; /* Prevents header from wrapping to multiple lines */
 }
 
-c-announcement-banner .announcement-content {
-    max-height: calc(100% - 60px);
-    overflow-y: auto;
-    padding-right: 10px;
+.announcement-content {
+    max-height: calc(100% - 60px); /* Adjust according to the space needed for other elements */
+    overflow-y: auto; /* Allow vertical scrolling if content exceeds height */
+    padding-right: 10px; /* Avoid content getting too close to the edge */
 }
 
-c-announcement-banner .announcement-content h1 {
+.announcement-content h1 {
     font-size: 1.5rem;
     font-family: "Helvetica", sans-serif !important;
     color: #005581;
@@ -1935,19 +2071,21 @@ c-announcement-banner .announcement-content h1 {
     padding: 0;
     overflow: hidden;
     word-wrap: break-word;
-    white-space: normal;
+    white-space: normal; /* Allow text to wrap to the next line */
 }
 
-c-announcement-banner .announcement-footer {
+/* Flexbox for the footer */
+.announcement-footer {
     display: flex;
     justify-content: space-between;
     align-items: center;
     position: absolute;
     bottom: 20px;
-    width: calc(100% - 40px);
+    width: calc(100% - 40px); /* Account for padding */
 }
 
-c-announcement-banner .arrow-button {
+/* Arrow button styling */
+.arrow-button {
     background: url('/path/to/arrow-icon.png') no-repeat center;
     background-size: contain;
     border: none;
@@ -1956,7 +2094,8 @@ c-announcement-banner .arrow-button {
     cursor: pointer;
 }
 
-c-announcement-banner .dots {
+/* Dots indicator */
+.dots {
     position: absolute;
     bottom: 20px;
     left: 20px;
@@ -1964,7 +2103,7 @@ c-announcement-banner .dots {
     gap: 5px;
 }
 
-c-announcement-banner .dot {
+.dot {
     height: 8px;
     width: 8px;
     background-color: white;
@@ -1973,11 +2112,11 @@ c-announcement-banner .dot {
     opacity: 0.5;
 }
 
-c-announcement-banner .dot.active {
+.dot.active {
     opacity: 1;
 }
 
-c-announcement-banner .announcement-content h3 {
+.announcement-content h3 {
     font-family: 'Helvetica Now', sans-serif;
     font-size: 2rem;
     line-height: 1.2;
@@ -1985,513 +2124,6 @@ c-announcement-banner .announcement-content h3 {
     color: #005581;
     overflow: hidden;
     word-wrap: break-word;
-    white-space: normal;
+    white-space: normal; /* Allow text to wrap to the next line */
 }
 
-/* == Search Container Component == */
-c-search-container .search-container {
-    width: 100%;
-    margin: 0;
-    position: relative;
-    overflow: hidden;
-}
-
-c-search-container .header-connector {
-    background-color: #2E2E2E;
-    height: 20px;
-    width: 100%;
-    position: relative;
-    margin-top: -20px;
-    margin-bottom: -1px;
-}
-
-c-search-container .search-top-section {
-    background-color: #2E2E2E;
-    position: relative;
-    margin: 0 -10px 2rem -10px;
-    width: calc(100% + 20px);
-    padding: 2rem;
-}
-
-c-search-container .search-top-section::before {
-    content: '';
-    position: absolute;
-    width: 100%;
-    height: calc(100% + 2px);
-    top: -2px;
-    left: 0;
-    transform: none;
-    background-color: #2E2E2E;
-    z-index: -1;
-}
-
-c-search-container .search-top-content {
-    padding: 2rem;
-    margin: 0;
-}
-
-c-search-container .search-header {
-    margin-bottom: 1rem;
-}
-
-c-search-container .search-header h2 {
-    color: white;
-    margin-bottom: 1rem;
-}
-
-c-search-container .search-filters {
-    margin-top: 1rem;
-    padding-top: 1rem;
-}
-
-c-search-container .results-section {
-    padding: 0 2rem;
-}
-
-c-search-container .error-message {
-    color: #2E2E2E;
-    font-size: 14px;
-    font-family: "Helvetica Now", Helvetica, Arial, sans-serif;
-    padding: 1rem;
-    text-align: center;
-}
-
-c-search-container .breadcrumbs-container {
-    padding-left: 32px !important;
-}
-
-/* Mobile Search Container Styles */
-@media (max-width: 768px) {
-    c-search-container .search-container {
-        width: 100%;
-        margin: 0;
-        padding: 0;
-        background-color: #2E2E2E;
-    }
-
-    c-search-container .search-top-section {
-        background-color: #2E2E2E;
-        margin: 0;
-        width: 100%;
-        padding: 16px;
-    }
-
-    c-search-container .breadcrumbs-container {
-        padding-left: 0px !important;
-    }
-
-    c-search-container .search-top-content {
-        padding: 0;
-        margin-top: 20px;
-    }
-
-    c-search-container .search-header {
-        margin-bottom: 16px;
-    }
-
-    c-search-container .search-header h2 {
-        color: white;
-        font-family: "Helvetica Now", sans-serif;
-        font-size: 24px;
-        font-weight: 500;
-        margin-bottom: 16px;
-    }
-
-    c-search-container .results-section {
-        background-color: white;
-        padding: 0;
-        margin-top: 0;
-    }
-
-    c-search-container .search-filters {
-        display: none;
-    }
-}
-
-/* == Knowledge Article Details Wrapper == */
-c-ka-details-wrapper .knowledge-detail-wrapper {
-    padding-top: 10px;
-    height: 100%;
-}
-
-c-ka-details-wrapper .article-navigation-wrapper {
-    margin-top: 50px;
-    display: block;
-}
-
-c-ka-details-wrapper .article-navigation-wrapper hr {
-    border: none;
-    border-top: 1px solid #EBF0F4;
-    margin: 0;
-}
-
-c-ka-details-wrapper .article-footer-wrapper {
-    margin-top: 50px;
-}
-
-@media (max-width: 768px) {
-    c-ka-details-wrapper .article-footer-wrapper {
-        border-bottom: 1px solid #EBF0F4;
-    }
-}
-
-/* == Login Page Component == */
-c-login-page .login-layout {
-    min-height: 100vh;
-    background-color: #0088CE;
-    color: white;
-    display: flex;
-    justify-content: center;
-    align-items: center;
-}
-
-c-login-page .main-content {
-    width: 100%;
-    max-width: 1200px;
-    padding: 2rem;
-}
-
-c-login-page .content-container {
-    display: flex;
-    flex-direction: column;
-    min-height: calc(100vh - 4rem);
-    position: relative;
-    max-width: 400px;
-    margin: 0 auto;
-    padding: 2rem 0;
-}
-
-c-login-page .logo-container {
-    align-self: center;
-    margin-bottom: 4rem;
-}
-
-c-login-page .center-section {
-    flex: 1;
-    display: flex;
-    flex-direction: column;
-    justify-content: center;
-    width: 100%;
-    margin: auto 0;
-}
-
-c-login-page .logo {
-    max-width: 240px;
-    height: auto;
-}
-
-c-login-page .welcome-section {
-    text-align: left;
-    width: 100%;
-    margin-bottom: 2rem;
-}
-
-c-login-page .welcome-heading {
-    font-size: 3.5rem;
-    font-weight: 400;
-    margin-bottom: 1rem;
-    letter-spacing: -0.02em;
-}
-
-c-login-page .welcome-text {
-    font-size: 1rem;
-    line-height: 1.5;
-    margin-bottom: 2rem;
-    opacity: 0.9;
-    text-align: left;
-}
-
-c-login-page .microsoft-login-button {
-    color: white;
-    border: 1px solid white;
-    border-radius: 0px;
-    padding: 0.5rem 1rem;
-    font-size: 0.875rem;
-    display: flex;
-    align-items: center;
-    gap: 0.75rem;
-    cursor: pointer;
-    transition: background-color 0.2s;
-    width: auto;
-    justify-content: flex-start;
-}
-
-c-login-page .microsoft-login-button:hover {
-    background-color: #f5f5f5;
-}
-
-c-login-page .help-link {
-    color: white;
-    font-family: 'Helvetica Now';
-    font-size: 14px;
-    font-weight: 500;
-    line-height: 20.58px;
-    letter-spacing: 0.02em;
-    text-align: left;
-    text-decoration: none;
-    display: flex;
-    align-items: center;
-    gap: 0.25rem;
-}
-
-c-login-page .help-link:hover {
-    opacity: 1;
-    color: white;
-    text-decoration: underline;
-}
-
-c-login-page .footer {
-    text-align: center;
-    width: 100%;
-}
-
-c-login-page .footer-content {
-    display: flex;
-    align-items: center;
-    justify-content: center;
-    gap: 1.5rem;
-    white-space: nowrap;
-}
-
-c-login-page .copyright {
-    font-size: 0.75rem;
-    opacity: 0.7;
-    margin: 0;
-    white-space: nowrap;
-}
-
-c-login-page .footer-links {
-    display: flex;
-    gap: 1.5rem;
-}
-
-c-login-page .footer-links a {
-    color: white;
-    text-decoration: none;
-    font-size: 0.75rem;
-    opacity: 0.7;
-}
-
-c-login-page .footer-links a:hover {
-    opacity: 1;
-    text-decoration: underline;
-}
-
-/* Mobile styles for login page */
-@media (max-width: 768px) {
-    c-login-page .login-layout {
-        min-height: 100vh;
-        padding: 0;
-        justify-content: flex-start;
-        align-items: flex-start;
-    }
-
-    c-login-page .main-content {
-        padding: 24px;
-        max-width: 100%;
-    }
-
-    c-login-page .content-container {
-        padding: 0;
-        max-width: 100%;
-    }
-
-    c-login-page .logo {
-        height: 24px;
-        width: auto;
-        margin-top: 120px;
-    }
-
-    c-login-page .welcome-heading {
-        font-size: 48px;
-        font-weight: 500;
-        margin-bottom: 16px;
-        letter-spacing: normal;
-    }
-
-    c-login-page .microsoft-login-button {
-        width: 100%;
-        background: #0066B3;
-        border: none;
-        border-radius: 4px;
-        padding: 12px;
-        justify-content: center;
-    }
-
-    c-login-page .footer {
-        position: fixed;
-        bottom: 0;
-        left: 0;
-        width: 100%;
-        padding: 24px;
-        border-top: 1px solid rgba(255, 255, 255, 0.1);
-    }
-
-    c-login-page .footer-content {
-        flex-direction: column;
-        gap: 16px;
-    }
-}
-
-/* == Case Form LWR Component == */
-c-case-form-lwr .slds-box {
-    background-color: white;
-    padding: 20px;
-    border-radius: 10px;
-}
-
-c-case-form-lwr .slds-text-heading_large {
-    color: #ffffff;
-}
-
-c-case-form-lwr .slds-button {
-    margin-top: 20px;
-    background-color: #0083BF;
-}
-
-c-case-form-lwr .ButtonPrimary.slds-button.slds-button_neutral {
-    background-color: #0083BF !important;
-    color: white !important;
-    border: none;
-    padding: 0.25rem 1.25rem;
-    font-size: 1rem;
-    border-radius: 0.25rem;
-    cursor: pointer;
-    border-radius: 0;
-}
-
-c-case-form-lwr .ButtonPrimary.slds-button.slds-button_neutral:hover {
-    background-color: #0073A1 !important;
-    border-radius: 0;
-}
-
-c-case-form-lwr .header {
-    border-bottom: 1px solid #e0e0e0;
-    padding-bottom: 8px;
-    margin-bottom: 16px;
-    font-weight: bold;
-}
-
-c-case-form-lwr {
-    --sds-c-textarea-radius-border: 0;
-    --sds-c-input-radius-border: 0;
-    --sds-c-form-element__label-radius-border: 0;
-    --slds-c-input-spacing-horizontal-start: .5rem;
-    --slds-c-input-spacing-horizontal-end: .5rem;
-    --dxp-s-form-element-spacing-block-end: .5rem;
-    --dxp-s-form-element-spacing-block-start: .5rem;
-}
-
-c-case-form-lwr .lightning-combobox-custom {
-    --sds-c-input-radius-border: 0;
-    --slds-c-input-spacing-horizontal-start: .5rem;
-    --slds-c-input-spacing-horizontal-end: .5rem;
-    --slds-c-input-radius-border: 0;
-    --dxp-s-form-element-spacing-block-end: .3rem;
-    --dxp-s-form-element-spacing-block-start: .3rem;
-}
-
-c-case-form-lwr {
-    --sds-c-dueling-list-options-radius-border: 0;
-}
-
-c-case-form-lwr .slds-dueling-list__options {
-    border-radius: 0 !important;
-}
-
-c-case-form-lwr div.slds-dueling-list__options {
-    border-radius: 0px !important;
-}
-
-c-case-form-lwr .primary-grey-dark {
-    color: var(--primary-grey-dark, #2E2E2E);
-}
-
-c-case-form-lwr .h1 {
-    font-family: "Helvetica Now Display";
-    font-size: 60px;
-    font-style: normal;
-    font-weight: 700;
-    line-height: 100%;
-}
-
-c-case-form-lwr .h2 {
-    font-family: "Helvetica Now Display";
-    font-size: 48px;
-    font-style: normal;
-    font-weight: 700;
-    line-height: 100%;
-}
-
-c-case-form-lwr .h3 {
-    font-family: "Helvetica Now Display";
-    font-size: 32px;
-    font-style: normal;
-    font-weight: 700;
-    line-height: 105%;
-}
-
-c-case-form-lwr .h4 {
-    font-family: "Helvetica Now Display";
-    font-size: 22px;
-    font-style: normal;
-    font-weight: 700;
-    line-height: 110%;
-    letter-spacing: 0.22px;
-}
-
-c-case-form-lwr .h5 {
-    font-family: "Helvetica Now Text";
-    font-size: 16px;
-    font-style: normal;
-    font-weight: 500;
-    line-height: 100%;
-}
-
-c-case-form-lwr .h6 {
-    font-family: "Helvetica Now Text";
-    font-size: 14px;
-    font-style: normal;
-    font-weight: 500;
-    line-height: 100%;
-}
-
-c-case-form-lwr .h7 {
-    font-family: "DIN Condensed";
-    font-size: 12px;
-    font-style: normal;
-    font-weight: 700;
-    line-height: 110%;
-    letter-spacing: 0.6px;
-    text-transform: uppercase;
-}
-
-c-case-form-lwr .body {
-    font-family: "Helvetica Now Text";
-    font-size: 16px;
-    font-style: normal;
-    font-weight: 700;
-    line-height: 140%;
-}
-
-c-case-form-lwr .body-s {
-    font-family: "Helvetica Now Text";
-    font-size: 14px;
-    font-style: normal;
-    font-weight: 400;
-    line-height: 140%;
-    letter-spacing: 0.14px;
-}
-
-c-case-form-lwr .body-xs {
-    font-family: "Helvetica Now Text";
-    font-size: 10px;
-    font-style: normal;
-    font-weight: 400;
-    line-height: 140%;
-    letter-spacing: 0.1px;
-}
-
-/* = Utility Classes = */
-.mt-0 { margin-top: 0; }
-.mb-0 { margin-bottom: 0; }
